@@ -1,0 +1,40 @@
+* Org: Dynamic block Gantt Charts
+
+Generate simple [[ctan-pgfgantt][pgfgantt]] charts using [[org-mode][Org mode]] [[org-mode-dynamic-blocks][dynamic blocks]] for the current
+subtree.
+
+** Dependencies
+
+To use this function, a working distribution of [[latex][\LaTeX]] with [[tikz][TikZ]] and [[ctan-pgfgantt][pgfGantt]].
+Obviously, Emacs is necessary, but you knew that.
+
+** Usage
+
+Add the following header to ensure successful generation:
+
+#+begin_src org
+,#+LATEX_HEADER: \usepackage{pgfgantt}
+#+end_src
+
+Add ~gantt~ dynamic block to the Org entry subtree of interest:
+
+#+begin_src org
+,#+begin: gantt :tstart "<today>" :tend "<tomorrow>" :tunit "days"
+,#+end:
+#+end_src
+
+Update the dynamic block using ~C-c C-c~ or ~org-dblock-update~.  Finally, export
+the subtree or document to PDF using [[latex][\LaTeX]].
+
+** License
+
+This code is provided AS-IS, WITHOUT warranty under the terms of the GNU
+General Public License (GPL) version 3 or (at your option) later.  For more
+information about the terms and conditions, please see the attached `LICENSE`
+file or read the license [[gpl][online]].
+
+#+LINK: gpl http://www.gnu.org/licenses/gpl.html
+#+LINK: ctan-pgfgantt https://www.ctan.org/pkg/pgfgantt/
+#+LINK: org-mode https://orgmode.org
+#+LINK: org-mode-dynamic-blocks https://orgmode.org/manual/Dynamic-Blocks.html
+#+LINK: latex https://www.latex-project.org/
